@@ -6,6 +6,6 @@ namespace FirstProject.viewModel
     {
 
         public List<content> Contents { get; set; }
-            public List<Slider> Sliders { get; set; }
+        public List<Slider> Sliders { get; set; }
     }
 }

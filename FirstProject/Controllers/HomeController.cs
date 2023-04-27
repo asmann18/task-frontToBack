@@ -2,6 +2,7 @@
 using FirstProject.Models;
 using FirstProject.viewModel;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualBasic;
 
 namespace FirstProject.Controllers
 {
@@ -20,8 +21,10 @@ namespace FirstProject.Controllers
 
             List<content> contents = _context.Contents.ToList();
             List<Slider> sliders = _context.Sliders.ToList();
+            
             HomeViewModel homeViewModel = new()
             {
+            
                 Contents = contents,
                 Sliders = sliders
             };
