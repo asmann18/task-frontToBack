@@ -11,5 +11,6 @@ namespace FirstProject.Contexts
                 
         }
         public DbSet<content> Contents { get; set; }
+        public DbSet<Slider> Sliders { get; set; }
     }
 }

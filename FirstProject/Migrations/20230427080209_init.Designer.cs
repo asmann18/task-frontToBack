@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FirstProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230426133658_Init")]
-    partial class Init
+    [Migration("20230427080209_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,6 +32,10 @@ namespace FirstProject.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("desc")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("image")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

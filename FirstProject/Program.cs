@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-options.UseSqlServer("Server=ASMAN,Database=FirstProject,Trusted_Connection=True"));
+options.UseSqlServer("Server=ASMAN;Database=FirstProject;Trusted_Connection=True"));
 
 builder.Services.AddControllersWithViews();
 
