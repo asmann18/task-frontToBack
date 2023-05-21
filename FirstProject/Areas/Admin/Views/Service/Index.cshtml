@@ -1,0 +1,64 @@
+﻿@using FirstProject.Models
+
+@model List<content>
+@{
+    ViewData["Title"] = "Service";
+    Layout = "~/Areas/Admin/Views/shared/_AdminLayout.cshtml";
+}
+
+
+<div class="card-body">
+
+
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (content content in Model)
+                {
+
+                    <tr>
+                        <td>@content.Id</td>
+                        <td>
+                            <img src="~/assets/images/website-images//@content.image"
+                             alt="Inner Image" />
+                        </td>
+                        <td>@content.name</td>
+                        <td>@content.desc</td>
+               
+                        <td>
+                            <a class="btn btn-success" asp-route-id="@content.Id" asp-action="Detail">Detail</a>
+                            <a class="btn btn-warning" asp-route-id="@content.Id" asp-action="Update">Update</a>
+                            <a class="btn btn-danger" asp-route-id="@content.Id" asp-action="Delete">Delete</a>
+
+                        </td>
+
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+        <a class="create_button btn btn-success" asp-action="createContent">  Create </a>
+
+    </div>
+
+
+
+
+</div>
+    </div>
+    </div>
+
+
+

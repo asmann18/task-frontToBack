@@ -29,16 +29,27 @@ namespace FirstProject.Areas.Admin.Controllers
 
             return View(homeViewModel);
         }
-        public IActionResult Create()
+
+
+
+ 
+     
+
+
+        public IActionResult deleteService(int id)
         {
-            return View();
+
+            content? content = _context.Contents.ToList().Find(c => c.Id == id);
+            if (content is null)
+                return NotFound();
+
+
+
+            return View(content);
         }
-        [HttpPost]
-        public IActionResult Create(Slider slider)
-        {
-            _context.Sliders.Add(slider);
-            _context.SaveChanges();
-            return View();
-        }
+
+
+
+
     }
 }

@@ -1,0 +1,32 @@
+﻿@using FirstProject.Models
+@model content
+@{
+    ViewData["Title"] = "updateContent";
+    Layout = "~/Areas/Admin/Views/shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Create slide</h4>
+        <p class="card-description">
+            Basic form layout
+        </p>
+        <form class="forms-sample" method="post">
+            <div class="form-group">
+                <label for="exampleInputUsername1">Slide name</label>
+                <input class="form-control" asp-for=name placeholder="name">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Description</label>
+                <input class="form-control" asp-for="desc" placeholder="Description">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">img</label>
+                <input asp-for="image" class="form-control" placeholder="image">
+            </div>
+
+            <button type="submit" asp-route-id="@Model.Id" class="btn btn-primary mr-2">Submit</button>
+            <button class="btn btn-light">Cancel</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+﻿@using FirstProject.Models
+
+@model List<Slider>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/shared/_AdminLayout.cshtml";
+}
+
+<div class="card-body">
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Offer</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Slider slider in Model)
+                {
+
+                    <tr>
+                        <td>
+                            <img src="~/assets/images/website-images//@slider.img"
+                             alt="Inner Image" />
+                        </td>
+                        <td>@slider.name</td>
+                        <td>@slider.desc</td>
+                        <td><label class="badge badge-dark">@slider.offer</label></td>
+                        <td>
+                            <a class="btn btn-success" asp-route-id="@slider.id" asp-action="Detail">Detail</a>
+                            <a class="btn btn-warning" asp-route-id="@slider.id" asp-action="Update">Update</a>
+                            <a class="btn btn-danger" asp-route-id="@slider.id" asp-action="Delete">Delete</a>
+
+                        </td>
+                    </tr>
+                }
+
+
+            </tbody>
+
+        </table>
+            <a class="create_button btn btn-success" asp-action="create">  Create </a>
+    </div>
+
+
+
+
+
+</div>
+
+
+
+
+    </div>
+    </div>
+    </div>
+

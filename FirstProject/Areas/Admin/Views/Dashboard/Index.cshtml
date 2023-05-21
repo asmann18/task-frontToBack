@@ -1,43 +1,8 @@
 ﻿@using FirstProject.Models
-@Model List<HomeViewModel>
+
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/shared/_AdminLayout.cshtml";
 }
-<div class="card-body">
-    <h4 class="card-title">Basic Table</h4>
-    <p class="card-description">
-        Add class <code>.table</code>
-    </p>
-    <div class="table-responsive">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Image</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Offer</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (Slider slider in Model.Sliders)
-                {
-                    
-                <tr>
-                            <td>
-                                <img src="~/assets/images/website-images//@slider.img"
-                                 alt="Inner Image" />
-                               </td>
-                    <td>@slider.name</td>
-                    <td>@slider.desc</td>
-                    <td><label class="badge badge-danger">@slider.offer</label></td>
-                </tr>
-                }
-              
-            </tbody>
-        </table>
-    </div>
-</div>
-              </div>
-            </div>
 
