@@ -53,8 +53,11 @@ namespace FirstProject.Areas.Admin.Controllers
             return View(Content);
         }
 
-        [HttpPost("update")]
-        public IActionResult updateService(content content, int id)
+
+
+
+        [HttpPost]
+        public IActionResult update(content content, int id)
         {
             content? Content = _context.Contents.ToList().Find(x => x.Id == id);
             if (Content == null)
@@ -62,12 +65,51 @@ namespace FirstProject.Areas.Admin.Controllers
                 return (NotFound());
             }
 
-            _context.Contents.Remove(Content);
+            Content.name = content.name;
+            Content.desc = content.desc;
+            Content.image = content.image;
+            
 
-            _context.Contents.Add(content);
+         
             _context.SaveChanges();
-            return View();
+            return RedirectToAction(nameof(Index));
 
+        }
+
+        public IActionResult Detail(int id)
+        {
+            content? content = _context.Contents.FirstOrDefault(c => c.Id == id);
+            if (content is null)
+                return NotFound();
+
+            return View(content);
+
+        }
+
+
+
+        public IActionResult Delete(int id)
+        {
+            content? content = _context.Contents.FirstOrDefault(c => c.Id == id);
+            if (content is null)
+                return NotFound();
+
+
+            return View(content);
+        }
+        [HttpPost]
+        [ActionName("Delete")]
+        public IActionResult DeleteService(int id)
+        {
+            content? content = _context.Contents.FirstOrDefault(c => c.Id == id);
+
+            if (content is null)
+                return NotFound();
+
+            _context.Contents.Remove(content);
+            _context.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }
